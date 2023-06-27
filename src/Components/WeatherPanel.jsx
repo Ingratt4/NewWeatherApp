@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import LocationText from "./TopStuff/LocationText";
+import CenterDisplay from "./CenterStuff/CenterDisplay";
+import DailyPanel from "./BottomStuff/DailyPanel";
 
 const WeatherPanel = () => {
   const [post, setPost] = useState();
@@ -35,8 +38,11 @@ const WeatherPanel = () => {
   return (
     <div className="full-panel">
       <div className="first-panel"></div>
+      <LocationText />
       <div className="second-panel"></div>
+      <CenterDisplay />
       <div className="third-panel"></div>
+      <DailyPanel />
     </div>
   );
 };
