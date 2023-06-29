@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import styled from "styled-components";
 
@@ -11,10 +12,10 @@ const HighLow = styled.h4`
   font-size: 10px;
 `;
 
-const MinimalTemperature = () => {
+const MinimalTemperature = (props) => {
   return (
     <Container>
-      <Temp>30°</Temp>
+      <Temp>{props.temp}°</Temp>
       <HighLow>high/low</HighLow>
     </Container>
   );

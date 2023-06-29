@@ -19,9 +19,7 @@ const ItemContainer = styled.ul`
   }
 `;
 
-const Container = styled.div`
-  margin: 0;
-`;
+const Container = styled.div``;
 
 const Wrp = () => {
   return (

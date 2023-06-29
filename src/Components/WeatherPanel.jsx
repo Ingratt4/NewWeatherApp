@@ -38,11 +38,11 @@ const WeatherPanel = () => {
   return (
     <div className="full-panel">
       <div className="first-panel"></div>
-      <LocationText />
+      <LocationText data={post} />
       <div className="second-panel"></div>
-      <CenterDisplay />
+      <CenterDisplay data={post} />
       <div className="third-panel"></div>
-      <DailyPanel />
+      <DailyPanel data={post} />
     </div>
   );
 };

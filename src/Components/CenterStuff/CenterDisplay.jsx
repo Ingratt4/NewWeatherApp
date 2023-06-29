@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import rain from "../../assets/weatherlogos/rainy.png";
 import MinimalTemperature from "./MinimalTemperature";
@@ -8,6 +9,10 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  > * {
+    margin-left: auto;
+  }
 `;
 
 const CurrentWeatherImage = styled.img`
@@ -15,11 +20,13 @@ const CurrentWeatherImage = styled.img`
   width: 100px;
 `;
 
-const CenterDisplay = () => {
+const CenterDisplay = ({ data }) => {
+  const current_temp = data.hourly.apparent_temperature[0];
+
   return (
     <Wrapper>
       <CurrentWeatherImage src={rain} alt="img of weather" />
-      <MinimalTemperature />
+      <MinimalTemperature temp={current_temp} />
       <Wrp />
     </Wrapper>
   );
