@@ -1,16 +1,24 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import styled from "styled-components";
 
-const DailyPanelItem = () => {
+const Temp = styled.h5`
+  font-size: 20px;
+`;
+
+const DailyPanelItem = (props) => {
   return (
     <div>
       <div>
-        <img alt="image of weather" />
+        <img src={props.weatherimage} alt="image of weather" />
       </div>
       <div>
-        <h5>high/low</h5>
+        <Temp>
+          {props.high}° / {props.low}°
+        </Temp>
       </div>
       <div>
-        <p>day</p>
+        <p>{props.day}</p>
       </div>
     </div>
   );

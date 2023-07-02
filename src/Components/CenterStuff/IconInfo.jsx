@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+
 import React from "react";
 import wind from "../../assets/weatherlogos/wind.png";
 import umbrella from "../../assets/weatherlogos/umbrella.png";
-import drop from "../../assets/weatherlogos/drop.png";
+import humidity from "../../assets/weatherlogos/humidity.png";
 import styled from "styled-components";
 
 const Logo = styled.img`
@@ -21,25 +23,25 @@ const ItemContainer = styled.ul`
 
 const Container = styled.div``;
 
-const Wrp = () => {
+const IconInfo = (props) => {
   return (
     <Container>
       <ItemContainer>
         <li>
           <Logo src={wind} alt="wind img" />
-          <p>??? km/h</p>
+          <p>{props.windspeed} km/h</p>
         </li>
         <li>
           <Logo src={umbrella} alt="rain img" />
-          <p>??? %</p>
+          <p>{props.rainchance}%</p>
         </li>
         <li>
-          <Logo src={drop} alt="precipitation img" />
-          <p>??? %</p>
+          <Logo src={humidity} alt="precipitation img" />
+          <p>{props.humidity}%</p>
         </li>
       </ItemContainer>
     </Container>
   );
 };
 
-export default Wrp;
+export default IconInfo;
