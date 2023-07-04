@@ -1,16 +1,23 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import DailyPanelItem from "./DailyPanelItem";
 import styled from "styled-components";
-import sun from "../../assets/weatherlogos/sun.png";
-import cloudy from "../../assets/weatherlogos/cloudy.png";
-import rainy from "../../assets/weatherlogos/rainy.png";
+import sun from "../../assets/weatherlogos/sun.gif";
+import cloudy from "../../assets/weatherlogos/clouds.gif";
+import snow from "../../assets/weatherlogos/snow.png";
+import snowstorm from "../../assets/weatherlogos/snowstorm.png";
+import partlycloudy from "../../assets/weatherlogos/partlycloudy.gif";
+import windy from "../../assets/weatherlogos/windy.png";
+import drizzle from "../../assets/weatherlogos/drizzle.gif";
+import fog from "../../assets/weatherlogos/foggy.gif";
+import rainy from "../../assets/weatherlogos/rain.gif";
 import storm from "../../assets/weatherlogos/storm.png";
 
 const Wrapper = styled.div`
   display: flex;
 `;
 const DailyPanel = ({ data }) => {
+  const code = data.daily.weathercode;
   const weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const today = new Date().getDay();
   const dayIndex2 = (today + 2) % 7;
@@ -26,14 +33,40 @@ const DailyPanel = ({ data }) => {
   const low4 = data.daily.apparent_temperature_min[4];
 
   const weatherImageHandler = (index) => {
-    if (data.daily.rain_sum[index] > 1) {
-      return { rainy };
+    if (
+      code[index] === 61 ||
+      code[index] === 63 ||
+      code[index] === 65 ||
+      code[index] === 80 ||
+      code[index] === 81 ||
+      code[index] === 82
+    ) {
+      return rainy;
+    } else if (code[index] === 95) {
+      return storm;
+    } else if (code[index] === 45 || code[index] === 48) {
+      return fog;
+    } else if (code[index] === 71 || code[index] === 73 || code[index] === 85) {
+      return snow;
+    } else if (code[index] === 75 || code[index] === 86) {
+      return snowstorm;
+    } else if (code[index] === 0 || code[index] === 1) {
+      return sun;
+    } else if (code[index] === 2 || code[index] === 3) {
+      return cloudy;
+    } else if (code[index] === 51 || code[index] === 53 || code[index] === 55) {
+      return drizzle;
     }
   };
 
   return (
     <Wrapper>
-      <DailyPanelItem high={high1} low={low1} day="TOM" />
+      <DailyPanelItem
+        high={high1}
+        low={low1}
+        day="TOM"
+        weatherimage={weatherImageHandler(1)}
+      />
       <DailyPanelItem
         high={high2}
         low={low2}

@@ -4,15 +4,16 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  margin-top: 7em;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
   width: 900px;
-  height: 500px;
-  background-color: rgb(242, 242, 242);
+  height: 550px;
+  background-color: white;
   border-radius: 15px;
 `;
+
 function App() {
   return (
     <Container>

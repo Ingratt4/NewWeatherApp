@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 const CurrentWeatherImage = styled.img`
   height: 100px;
   width: 100px;
+  margin-left: 0;
 `;
 
 const CenterDisplay = ({ data }) => {
