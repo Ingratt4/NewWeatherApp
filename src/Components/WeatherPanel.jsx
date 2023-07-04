@@ -9,6 +9,8 @@ import DailyPanel from "./BottomStuff/DailyPanel";
 const WeatherPanel = () => {
   const [post, setPost] = useState();
 
+  const handleImage = we;
+
   useEffect(() => {
     console.log("component mounted");
 
@@ -19,7 +21,7 @@ const WeatherPanel = () => {
       // Make API call here
       axios
         .get(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=precipitation_probability,relativehumidity_2m,temperature_2m,apparent_temperature,rain,showers,snowfall&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&timezone=America%2FNew_York`
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=precipitation_probability,relativehumidity_2m,temperature_2m,apparent_temperature,rain,showers,snowfall&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,weathercode&daily=weathercode,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&timezone=America%2FNew_York`
         )
         .then((response) => {
           console.log(response.data);
@@ -40,7 +42,7 @@ const WeatherPanel = () => {
       <div className="first-panel"></div>
       <LocationText data={post} />
       <div className="second-panel"></div>
-      <CenterDisplay data={post} />
+      <CenterDisplay data={post} weatherimg={handleImage} />
       <div className="third-panel"></div>
       <DailyPanel data={post} />
     </div>
