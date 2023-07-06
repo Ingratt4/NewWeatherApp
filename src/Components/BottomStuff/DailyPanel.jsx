@@ -15,6 +15,11 @@ import storm from "../../assets/weatherlogos/storm.png";
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  width: 700px;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
 `;
 const DailyPanel = ({ data }) => {
   const code = data.daily.weathercode;

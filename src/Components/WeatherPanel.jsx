@@ -9,7 +9,7 @@ import DailyPanel from "./BottomStuff/DailyPanel";
 const WeatherPanel = () => {
   const [post, setPost] = useState();
 
-  const handleImage = we;
+  // const handleImage = weatherimg;
 
   useEffect(() => {
     console.log("component mounted");
@@ -42,7 +42,7 @@ const WeatherPanel = () => {
       <div className="first-panel"></div>
       <LocationText data={post} />
       <div className="second-panel"></div>
-      <CenterDisplay data={post} weatherimg={handleImage} />
+      <CenterDisplay data={post} />
       <div className="third-panel"></div>
       <DailyPanel data={post} />
     </div>
